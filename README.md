@@ -1,84 +1,77 @@
 # Windows MQTT Client
 ## Parses information about your PC and sends it to your MQTT server!
+Supports listening as well as publishing.
 
+Most workers supports Home Assistant auto-discovery feature. Scripts for setting volume/muting/suspending have to be done manually.
 
-# Text below is obsolete and will be replaced with new instructions soon!
-```
-### Publish mqtt senors
+### Publishing (from PC to MQTT server):
+Commands to MQTT server are always formated in following way:
 
-#### Cpu prosessor load /cpuprosessortime
-[maintopic]/cpuprosessortime 
-returns string 0-100%
-#### Free memory in MB /freememory
-[maintopic]/freememory 
-returns string of memory in MB
-#### Volume muted
-[maintopic]/mute 
-1=muted 0=not muted
-#### Master volume in % volume
-[maintopic]/volume 
-returns string of current volume setting 0-100
-#### Camera Screnshot of primary monitor
-if enabled it publishes to specified folder as jpg file or published the [maintopic]/mqttcamera topic
-#### Battery sensors
-if enabled published to [maintopic]/Power with subtopics
-- BatteryChargeStatus
-- BatteryFullLifetime
-- BatteryLifePercent
-- BatteryLifeRemaining
-- PowerLineStatus
-#### In use
-[maintopic]/binary_sensor/inUse
-Message "on" if the API GetLastInputInfo is less then 30 seconds else "off"
+[device_topic]/[worker]/[stat] - examples:
+- 'maczugapc/volume/mute' with payload set to "OFF" will inform the MQTT server, that your PC is muted.
+- 'maczugapc/volume/level' with payload set to "15" will inform the MQTT server, that your PC volume is set to 15%.
+- 'maczugapc/performance/cpu' with payload set to "20" will inform the MQTT server, that your PC current CPU usage is 15%.
+- 'maczugapc/disks/d/free' with payload set to "50" will inform the MQTT server, that your PC current free D disk space is 50%.
 
-#### Disk sensors
-[maintopic]/drive
-Subtopic with each drive letter with the following subtopics
-- totalsize
-- percentFree
-- availablefreespace
+#### Supported workers:
 
-Exsample : kjetilsv/drive/c/totalsize
+Camera (worker name: 'camera'):
+- live - recent camera capture
 
-### MQTT listeners 
-The predefined is optional due safety resons
-#### Mute/Unmute
-[maintopic]/mute/set 1=muted 0=not muted
-published to [maintopic]/mute after setting
-#### Volume
-[maintopic]/volume/set volume 0-100
-published to [maintopic]/volume after setting
-#### Monitor
-[maintopic]/monitor/set 0-1
-published to [maintopic]/monitor after setting
-#### Suspend PC
-[maintopic]/suspend 
-#### Shutdown
-[maintopic]/shutdown
-#### Reboot
-[maintopic]/reboot
-#### Hibrernate
-[maintopic]/hibrernate
-#### Toast message
-[maintopic]/toast
-Displays a message on the windows computer.
-Message exsample "Home Assistant,kom ned!,Kjetil,c:\temp\iselin.jpg".
-The the image must be visable from the windows computer.
-#### TTS
-[maintopic]/tts
-Mqtt message is sendt to the synthesizer.
-Currently the volume is set to 100%
-#### app/running sensor
-[maintopic]/app/running/ message:[appname] and published back to [maintopic]/app/running/[appname] with 0= not running/not found in process 1= found
-Tested with common applications like spotify/firefox/skype.
-Exsample: 
-mosquitto_pub -t kjetilsv/app/running -m Spotify
-if spotify is running kjetilsv/app/running/Spotify return message = 1 
-#### CMD
-{"CommandString": "Chrome","WindowStyle": "1","ExecParameters": "http://vg.no","MonitorId": "1"}
-#### Custom commands
-[maintopic]/[customcommandname]
-Message is currently not used, will be impemented in later versions.
-One example of a custom command is lockcomputer. 
-Thanks to @FatBasta it's no added in the hass-example file.
-```
+Disks (worker name: 'disks'):
+- [disk_letter]
+- - free - free disk space in GB
+- - free_pct - free disk space in %
+- - total - total disk space in GB
+
+Media player (worker name: 'mediaplayer'):
+- none yet, might include support for common media players in future.
+
+Performance (worker name: 'performance'):
+- cpu - current CPU usage in %
+- ram - current free RAM in MB
+
+Power (worker name: 'power'):
+- none yet, monitor / pc state to be included in future releases.
+
+Volume (worker name: 'volume'):
+- level - current volume level in %
+- level_01 - special case for Home Assistant media_player component, which requires a value in specific format
+- mute - ON/OFF - either muted or not
+
+### Listening (receive commands from MQTT server):
+Commands to MQTT server are always formated in following way:
+
+[device_topic]/cmd/[worker]/[stat] - examples:
+- 'maczugapc/cmd/volume/mute' with payload set to "OFF" will mute the PC.
+- 'maczugapc/cmd/camera/snapshot' will save current camera image to a directory chosen in settings on your PC.
+
+#### Supported workers:
+
+Camera (worker name: 'camera'):
+- snapshot - saves current camera image to selected earlier directory.
+
+Disks (worker name: 'disks'):
+- none so far
+
+Media player (worker name: 'mediaplayer'):
+- play_pause - toggles between play and pause status.
+- stop - stops playing media on device.
+- next_track
+- prev_track
+
+Performance (worker name: 'performance'):
+- none so far
+
+Power (worker name: 'power'):
+- suspend
+- hibernate
+- monitor_off
+- monitor_on
+
+Volume (worker name: 'volume'):
+- up - increases volume by payload value or 1 if no payload specified
+- down - decreases volume by payload value or 1 if no payload specified
+- level - sets volume to level specified in payload
+- mute - sets mute to value specified in payload (ON/OFF)
+- mute_toggle - toggles the mute value
