@@ -56,10 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HardwareSensors\IdleTimeFinder.cs" />
-    <Compile Include="HardwareSensors\Monitor.cs" />
     <Compile Include="HardwareSensors\Process.cs" />
     <Compile Include="HardwareSensors\Speaker.cs" />
-    <Compile Include="HardwareSensors\SystemShutdown.cs" />
     <Compile Include="HardwareSensors\UsingComputer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

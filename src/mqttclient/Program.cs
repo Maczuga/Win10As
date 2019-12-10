@@ -17,7 +17,7 @@ namespace WinMqtt
             Properties.Settings.Default.SettingChanging += OnSettingsChanging;
 
             var form = new MainForm();
-            Application.ThreadException += new ThreadExceptionEventHandler(form.UnhandledThreadExceptionHandler);
+            //Application.ThreadException += new ThreadExceptionEventHandler(form.UnhandledThreadExceptionHandler);
             Application.Run(form);
         }
 

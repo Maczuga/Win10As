@@ -16,6 +16,11 @@ namespace WinMqtt.Workers
         protected override bool IsEnabled => Utils.Settings.WorkerCameraEnabled;
         protected override decimal UpdateInterval => Utils.Settings.WorkerCameraInterval;
 
+        protected void Setup()
+        {
+            Camera.SetDevice(IsEnabled ? Utils.Settings.WorkerCameraDevice : "");
+        }
+
         protected override List<MqttMessage> PrepareDiscoveryMessages()
         {
             var result = new List<MqttMessage>();
@@ -85,6 +90,9 @@ namespace WinMqtt.Workers
                 _videoDevice.SignalToStop();
                 _videoDevice.WaitForStop();
             }
+
+            if (name + "" == "")
+                return;
 
             foreach (FilterInfo device in videoDevices)
             {

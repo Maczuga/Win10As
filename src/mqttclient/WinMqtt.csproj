@@ -202,6 +202,7 @@
     <Compile Include="Workers\PerformanceWorker.cs" />
     <Compile Include="Workers\MediaPlayerWorker.cs" />
     <Compile Include="Workers\CameraWorker.cs" />
+    <Compile Include="Workers\PowerWorker.cs" />
     <Compile Include="Workers\VolumeWorker.cs" />
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

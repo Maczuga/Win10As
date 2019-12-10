@@ -75,41 +75,41 @@
             this.nWorkerScreenshotInterval = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
             this.cbWorkerScreenshot = new System.Windows.Forms.CheckBox();
-            this.tabSensors = new System.Windows.Forms.TabPage();
-            this.ChkComputerUsed = new System.Windows.Forms.CheckBox();
-            this.ChkBatterySensor = new System.Windows.Forms.CheckBox();
+            this.tabWorkerTweaks = new System.Windows.Forms.TabPage();
             this.tabPresets = new System.Windows.Forms.TabPage();
             this.ChkProcesses = new System.Windows.Forms.CheckBox();
             this.ChkMonitor = new System.Windows.Forms.CheckBox();
-            this.chkSuspend = new System.Windows.Forms.CheckBox();
             this.chktoast = new System.Windows.Forms.CheckBox();
             this.chkShutdown = new System.Windows.Forms.CheckBox();
             this.chkReboot = new System.Windows.Forms.CheckBox();
-            this.chkHibernate = new System.Windows.Forms.CheckBox();
             this.tabSound = new System.Windows.Forms.TabPage();
-            this.boxAudioOutput = new System.Windows.Forms.GroupBox();
-            this.cbbVolumeDevice = new System.Windows.Forms.ComboBox();
             this.boxTTS = new System.Windows.Forms.GroupBox();
             this.cbTTSEnabled = new System.Windows.Forms.CheckBox();
             this.btnTTSTest = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.cbbTTSSpeaker = new System.Windows.Forms.ComboBox();
+            this.boxAudioOutput = new System.Windows.Forms.GroupBox();
+            this.cbbVolumeDevice = new System.Windows.Forms.ComboBox();
             this.tabVideo = new System.Windows.Forms.TabPage();
             this.boxWebcam = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
-            this.btnWebcamTest = new System.Windows.Forms.Button();
-            this.cbbCameraDevice = new System.Windows.Forms.ComboBox();
-            this.boxScreenshot = new System.Windows.Forms.GroupBox();
-            this.nScreenshotInterval = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
-            this.chkScreenshot = new System.Windows.Forms.CheckBox();
-            this.tabApplicaiton = new System.Windows.Forms.TabPage();
-            this.chkMinimizeToTray = new System.Windows.Forms.CheckBox();
-            this.chkStartUp = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
             this.tbWebcamSaveLocation = new System.Windows.Forms.TextBox();
             this.btnWebcamBrowseSaveDir = new System.Windows.Forms.Button();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbbCameraDevice = new System.Windows.Forms.ComboBox();
+            this.btnWebcamTest = new System.Windows.Forms.Button();
+            this.tabApplicaiton = new System.Windows.Forms.TabPage();
+            this.chkMinimizeToTray = new System.Windows.Forms.CheckBox();
+            this.chkStartUp = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.cbWorkerPower = new System.Windows.Forms.CheckBox();
+            this.gbPower = new System.Windows.Forms.GroupBox();
+            this.chkSuspend = new System.Windows.Forms.CheckBox();
+            this.chkHibernate = new System.Windows.Forms.CheckBox();
+            this.ChkComputerUsed = new System.Windows.Forms.CheckBox();
+            this.ChkBatterySensor = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabConnection.SuspendLayout();
             this.boxHomeAssistantDiscovery.SuspendLayout();
@@ -125,28 +125,27 @@
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerDisksInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerCameraInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerScreenshotInterval)).BeginInit();
-            this.tabSensors.SuspendLayout();
+            this.tabWorkerTweaks.SuspendLayout();
             this.tabPresets.SuspendLayout();
             this.tabSound.SuspendLayout();
-            this.boxAudioOutput.SuspendLayout();
             this.boxTTS.SuspendLayout();
+            this.boxAudioOutput.SuspendLayout();
             this.tabVideo.SuspendLayout();
             this.boxWebcam.SuspendLayout();
-            this.boxScreenshot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nScreenshotInterval)).BeginInit();
-            this.tabApplicaiton.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tabApplicaiton.SuspendLayout();
+            this.gbPower.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabConnection);
             this.tabControl1.Controls.Add(this.tabWorkers);
-            this.tabControl1.Controls.Add(this.tabSensors);
-            this.tabControl1.Controls.Add(this.tabPresets);
+            this.tabControl1.Controls.Add(this.tabWorkerTweaks);
             this.tabControl1.Controls.Add(this.tabSound);
             this.tabControl1.Controls.Add(this.tabVideo);
             this.tabControl1.Controls.Add(this.tabApplicaiton);
+            this.tabControl1.Controls.Add(this.tabPresets);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -459,6 +458,9 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33332F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel3.Controls.Add(this.cbWorkerPower, 1, 7);
+            this.tableLayoutPanel3.Controls.Add(this.label23, 2, 7);
+            this.tableLayoutPanel3.Controls.Add(this.label5, 0, 7);
             this.tableLayoutPanel3.Controls.Add(this.cbWorkerMediaPlayer, 1, 4);
             this.tableLayoutPanel3.Controls.Add(this.label18, 0, 4);
             this.tableLayoutPanel3.Controls.Add(this.label9, 0, 0);
@@ -483,7 +485,7 @@
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 8;
+            this.tableLayoutPanel3.RowCount = 9;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -491,7 +493,8 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(374, 335);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
@@ -757,55 +760,30 @@
             this.cbWorkerScreenshot.Size = new System.Drawing.Size(118, 20);
             this.cbWorkerScreenshot.TabIndex = 17;
             // 
-            // tabSensors
+            // tabWorkerTweaks
             // 
-            this.tabSensors.Controls.Add(this.ChkComputerUsed);
-            this.tabSensors.Controls.Add(this.ChkBatterySensor);
-            this.tabSensors.Location = new System.Drawing.Point(4, 22);
-            this.tabSensors.Name = "tabSensors";
-            this.tabSensors.Size = new System.Drawing.Size(374, 335);
-            this.tabSensors.TabIndex = 1;
-            this.tabSensors.Text = "Sensors";
-            this.tabSensors.UseVisualStyleBackColor = true;
-            // 
-            // ChkComputerUsed
-            // 
-            this.ChkComputerUsed.AutoSize = true;
-            this.ChkComputerUsed.Checked = global::WinMqtt.Properties.Settings.Default.SensorIsComputerUsedEnabled;
-            this.ChkComputerUsed.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "SensorIsComputerUsedEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkComputerUsed.Location = new System.Drawing.Point(8, 26);
-            this.ChkComputerUsed.Name = "ChkComputerUsed";
-            this.ChkComputerUsed.Size = new System.Drawing.Size(107, 17);
-            this.ChkComputerUsed.TabIndex = 5;
-            this.ChkComputerUsed.Text = "Is computer used";
-            this.ChkComputerUsed.UseVisualStyleBackColor = true;
-            // 
-            // ChkBatterySensor
-            // 
-            this.ChkBatterySensor.AutoSize = true;
-            this.ChkBatterySensor.Checked = global::WinMqtt.Properties.Settings.Default.SensorBatteryEnabled;
-            this.ChkBatterySensor.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "SensorBatteryEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkBatterySensor.Location = new System.Drawing.Point(8, 3);
-            this.ChkBatterySensor.Name = "ChkBatterySensor";
-            this.ChkBatterySensor.Size = new System.Drawing.Size(59, 17);
-            this.ChkBatterySensor.TabIndex = 0;
-            this.ChkBatterySensor.Text = "Battery";
-            this.ChkBatterySensor.UseVisualStyleBackColor = true;
+            this.tabWorkerTweaks.Controls.Add(this.gbPower);
+            this.tabWorkerTweaks.Location = new System.Drawing.Point(4, 22);
+            this.tabWorkerTweaks.Name = "tabWorkerTweaks";
+            this.tabWorkerTweaks.Size = new System.Drawing.Size(374, 335);
+            this.tabWorkerTweaks.TabIndex = 1;
+            this.tabWorkerTweaks.Text = "Worker tweaks";
+            this.tabWorkerTweaks.UseVisualStyleBackColor = true;
             // 
             // tabPresets
             // 
+            this.tabPresets.Controls.Add(this.ChkComputerUsed);
+            this.tabPresets.Controls.Add(this.ChkBatterySensor);
             this.tabPresets.Controls.Add(this.ChkProcesses);
             this.tabPresets.Controls.Add(this.ChkMonitor);
-            this.tabPresets.Controls.Add(this.chkSuspend);
             this.tabPresets.Controls.Add(this.chktoast);
             this.tabPresets.Controls.Add(this.chkShutdown);
             this.tabPresets.Controls.Add(this.chkReboot);
-            this.tabPresets.Controls.Add(this.chkHibernate);
             this.tabPresets.Location = new System.Drawing.Point(4, 22);
             this.tabPresets.Name = "tabPresets";
             this.tabPresets.Size = new System.Drawing.Size(374, 335);
             this.tabPresets.TabIndex = 2;
-            this.tabPresets.Text = "Presets";
+            this.tabPresets.Text = "NYI";
             this.tabPresets.UseVisualStyleBackColor = true;
             // 
             // ChkProcesses
@@ -813,7 +791,7 @@
             this.ChkProcesses.AutoSize = true;
             this.ChkProcesses.Checked = global::WinMqtt.Properties.Settings.Default.CmdProcessEnabled;
             this.ChkProcesses.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdProcessEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkProcesses.Location = new System.Drawing.Point(191, 12);
+            this.ChkProcesses.Location = new System.Drawing.Point(8, 141);
             this.ChkProcesses.Name = "ChkProcesses";
             this.ChkProcesses.Size = new System.Drawing.Size(75, 17);
             this.ChkProcesses.TabIndex = 33;
@@ -825,31 +803,19 @@
             this.ChkMonitor.AutoSize = true;
             this.ChkMonitor.Checked = global::WinMqtt.Properties.Settings.Default.CmdMonitorEnabled;
             this.ChkMonitor.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdMonitorEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkMonitor.Location = new System.Drawing.Point(199, 98);
+            this.ChkMonitor.Location = new System.Drawing.Point(8, 49);
             this.ChkMonitor.Name = "ChkMonitor";
             this.ChkMonitor.Size = new System.Drawing.Size(61, 17);
             this.ChkMonitor.TabIndex = 32;
             this.ChkMonitor.Text = "Monitor";
             this.ChkMonitor.UseVisualStyleBackColor = true;
             // 
-            // chkSuspend
-            // 
-            this.chkSuspend.AutoSize = true;
-            this.chkSuspend.Checked = global::WinMqtt.Properties.Settings.Default.CmdSuspendEnabled;
-            this.chkSuspend.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdSuspendEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkSuspend.Location = new System.Drawing.Point(6, 98);
-            this.chkSuspend.Name = "chkSuspend";
-            this.chkSuspend.Size = new System.Drawing.Size(68, 17);
-            this.chkSuspend.TabIndex = 14;
-            this.chkSuspend.Text = "Suspend";
-            this.chkSuspend.UseVisualStyleBackColor = true;
-            // 
             // chktoast
             // 
             this.chktoast.AutoSize = true;
             this.chktoast.Checked = global::WinMqtt.Properties.Settings.Default.CmdToastEnabled;
             this.chktoast.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdToastEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chktoast.Location = new System.Drawing.Point(132, 12);
+            this.chktoast.Location = new System.Drawing.Point(8, 118);
             this.chktoast.Name = "chktoast";
             this.chktoast.Size = new System.Drawing.Size(53, 17);
             this.chktoast.TabIndex = 31;
@@ -861,7 +827,7 @@
             this.chkShutdown.AutoSize = true;
             this.chkShutdown.Checked = global::WinMqtt.Properties.Settings.Default.CmdShutdownEnabled;
             this.chkShutdown.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdShutdownEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkShutdown.Location = new System.Drawing.Point(6, 120);
+            this.chkShutdown.Location = new System.Drawing.Point(8, 3);
             this.chkShutdown.Name = "chkShutdown";
             this.chkShutdown.Size = new System.Drawing.Size(74, 17);
             this.chkShutdown.TabIndex = 15;
@@ -873,24 +839,12 @@
             this.chkReboot.AutoSize = true;
             this.chkReboot.Checked = global::WinMqtt.Properties.Settings.Default.CmdRebootEnabled;
             this.chkReboot.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdRebootEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkReboot.Location = new System.Drawing.Point(116, 98);
+            this.chkReboot.Location = new System.Drawing.Point(8, 26);
             this.chkReboot.Name = "chkReboot";
             this.chkReboot.Size = new System.Drawing.Size(61, 17);
             this.chkReboot.TabIndex = 18;
             this.chkReboot.Text = "Reboot";
             this.chkReboot.UseVisualStyleBackColor = true;
-            // 
-            // chkHibernate
-            // 
-            this.chkHibernate.AutoSize = true;
-            this.chkHibernate.Checked = global::WinMqtt.Properties.Settings.Default.CmdHibernateEnabled;
-            this.chkHibernate.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdHibernateEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkHibernate.Location = new System.Drawing.Point(116, 121);
-            this.chkHibernate.Name = "chkHibernate";
-            this.chkHibernate.Size = new System.Drawing.Size(72, 17);
-            this.chkHibernate.TabIndex = 16;
-            this.chkHibernate.Text = "Hibernate";
-            this.chkHibernate.UseVisualStyleBackColor = true;
             // 
             // tabSound
             // 
@@ -902,30 +856,6 @@
             this.tabSound.TabIndex = 5;
             this.tabSound.Text = "Audio";
             this.tabSound.UseVisualStyleBackColor = true;
-            // 
-            // boxAudioOutput
-            // 
-            this.boxAudioOutput.AutoSize = true;
-            this.boxAudioOutput.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.boxAudioOutput.Controls.Add(this.cbbVolumeDevice);
-            this.boxAudioOutput.Dock = System.Windows.Forms.DockStyle.Top;
-            this.boxAudioOutput.Location = new System.Drawing.Point(0, 0);
-            this.boxAudioOutput.Name = "boxAudioOutput";
-            this.boxAudioOutput.Size = new System.Drawing.Size(374, 40);
-            this.boxAudioOutput.TabIndex = 60;
-            this.boxAudioOutput.TabStop = false;
-            this.boxAudioOutput.Text = "Volume device";
-            // 
-            // cbbVolumeDevice
-            // 
-            this.cbbVolumeDevice.DataBindings.Add(new System.Windows.Forms.Binding("Enabled", global::WinMqtt.Properties.Settings.Default, "TTSEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbbVolumeDevice.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cbbVolumeDevice.Enabled = global::WinMqtt.Properties.Settings.Default.TTSEnabled;
-            this.cbbVolumeDevice.FormattingEnabled = true;
-            this.cbbVolumeDevice.Location = new System.Drawing.Point(3, 16);
-            this.cbbVolumeDevice.Name = "cbbVolumeDevice";
-            this.cbbVolumeDevice.Size = new System.Drawing.Size(368, 21);
-            this.cbbVolumeDevice.TabIndex = 56;
             // 
             // boxTTS
             // 
@@ -986,10 +916,31 @@
             this.cbbTTSSpeaker.Size = new System.Drawing.Size(166, 21);
             this.cbbTTSSpeaker.TabIndex = 56;
             // 
+            // boxAudioOutput
+            // 
+            this.boxAudioOutput.AutoSize = true;
+            this.boxAudioOutput.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.boxAudioOutput.Controls.Add(this.cbbVolumeDevice);
+            this.boxAudioOutput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.boxAudioOutput.Location = new System.Drawing.Point(0, 0);
+            this.boxAudioOutput.Name = "boxAudioOutput";
+            this.boxAudioOutput.Size = new System.Drawing.Size(374, 40);
+            this.boxAudioOutput.TabIndex = 60;
+            this.boxAudioOutput.TabStop = false;
+            this.boxAudioOutput.Text = "Volume device";
+            // 
+            // cbbVolumeDevice
+            // 
+            this.cbbVolumeDevice.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cbbVolumeDevice.FormattingEnabled = true;
+            this.cbbVolumeDevice.Location = new System.Drawing.Point(3, 16);
+            this.cbbVolumeDevice.Name = "cbbVolumeDevice";
+            this.cbbVolumeDevice.Size = new System.Drawing.Size(368, 21);
+            this.cbbVolumeDevice.TabIndex = 56;
+            // 
             // tabVideo
             // 
             this.tabVideo.Controls.Add(this.boxWebcam);
-            this.tabVideo.Controls.Add(this.boxScreenshot);
             this.tabVideo.Location = new System.Drawing.Point(4, 22);
             this.tabVideo.Name = "tabVideo";
             this.tabVideo.Size = new System.Drawing.Size(374, 335);
@@ -1003,12 +954,35 @@
             this.boxWebcam.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.boxWebcam.Controls.Add(this.tableLayoutPanel4);
             this.boxWebcam.Dock = System.Windows.Forms.DockStyle.Top;
-            this.boxWebcam.Location = new System.Drawing.Point(0, 83);
+            this.boxWebcam.Location = new System.Drawing.Point(0, 0);
             this.boxWebcam.Name = "boxWebcam";
             this.boxWebcam.Size = new System.Drawing.Size(374, 78);
             this.boxWebcam.TabIndex = 56;
             this.boxWebcam.TabStop = false;
             this.boxWebcam.Text = "Webcam";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.AutoSize = true;
+            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.tableLayoutPanel4.ColumnCount = 3;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.Controls.Add(this.label20, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label22, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tbWebcamSaveLocation, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.btnWebcamBrowseSaveDir, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.cbbCameraDevice, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnWebcamTest, 2, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(368, 59);
+            this.tableLayoutPanel4.TabIndex = 60;
             // 
             // label20
             // 
@@ -1021,16 +995,37 @@
             this.label20.Text = "Device";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnWebcamTest
+            // label22
             // 
-            this.btnWebcamTest.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnWebcamTest.Location = new System.Drawing.Point(285, 3);
-            this.btnWebcamTest.Name = "btnWebcamTest";
-            this.btnWebcamTest.Size = new System.Drawing.Size(80, 24);
-            this.btnWebcamTest.TabIndex = 55;
-            this.btnWebcamTest.Text = "Test";
-            this.btnWebcamTest.UseVisualStyleBackColor = true;
-            this.btnWebcamTest.Click += new System.EventHandler(this.Button2_Click);
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Location = new System.Drawing.Point(3, 30);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(75, 29);
+            this.label22.TabIndex = 57;
+            this.label22.Text = "Save directory";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tbWebcamSaveLocation
+            // 
+            this.tbWebcamSaveLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WinMqtt.Properties.Settings.Default, "WorkerCameraSaveLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.tbWebcamSaveLocation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbWebcamSaveLocation.Location = new System.Drawing.Point(84, 33);
+            this.tbWebcamSaveLocation.Name = "tbWebcamSaveLocation";
+            this.tbWebcamSaveLocation.Size = new System.Drawing.Size(195, 20);
+            this.tbWebcamSaveLocation.TabIndex = 58;
+            this.tbWebcamSaveLocation.Text = global::WinMqtt.Properties.Settings.Default.WorkerCameraSaveLocation;
+            // 
+            // btnWebcamBrowseSaveDir
+            // 
+            this.btnWebcamBrowseSaveDir.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnWebcamBrowseSaveDir.Location = new System.Drawing.Point(285, 33);
+            this.btnWebcamBrowseSaveDir.Name = "btnWebcamBrowseSaveDir";
+            this.btnWebcamBrowseSaveDir.Size = new System.Drawing.Size(80, 23);
+            this.btnWebcamBrowseSaveDir.TabIndex = 59;
+            this.btnWebcamBrowseSaveDir.Text = "Browse";
+            this.btnWebcamBrowseSaveDir.UseVisualStyleBackColor = true;
+            this.btnWebcamBrowseSaveDir.Click += new System.EventHandler(this.BtnWebcamBrowseSaveDir_Click);
             // 
             // cbbCameraDevice
             // 
@@ -1041,54 +1036,16 @@
             this.cbbCameraDevice.Size = new System.Drawing.Size(195, 21);
             this.cbbCameraDevice.TabIndex = 54;
             // 
-            // boxScreenshot
+            // btnWebcamTest
             // 
-            this.boxScreenshot.AutoSize = true;
-            this.boxScreenshot.Controls.Add(this.nScreenshotInterval);
-            this.boxScreenshot.Controls.Add(this.label5);
-            this.boxScreenshot.Controls.Add(this.chkScreenshot);
-            this.boxScreenshot.Dock = System.Windows.Forms.DockStyle.Top;
-            this.boxScreenshot.Location = new System.Drawing.Point(0, 0);
-            this.boxScreenshot.Name = "boxScreenshot";
-            this.boxScreenshot.Size = new System.Drawing.Size(374, 83);
-            this.boxScreenshot.TabIndex = 53;
-            this.boxScreenshot.TabStop = false;
-            this.boxScreenshot.Text = "Screenshot";
-            // 
-            // nScreenshotInterval
-            // 
-            this.nScreenshotInterval.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::WinMqtt.Properties.Settings.Default, "ScreenshotInterval", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.nScreenshotInterval.Location = new System.Drawing.Point(106, 44);
-            this.nScreenshotInterval.Maximum = new decimal(new int[] {
-            86400000,
-            0,
-            0,
-            0});
-            this.nScreenshotInterval.Name = "nScreenshotInterval";
-            this.nScreenshotInterval.Size = new System.Drawing.Size(165, 20);
-            this.nScreenshotInterval.TabIndex = 34;
-            this.nScreenshotInterval.Value = global::WinMqtt.Properties.Settings.Default.WorkerScreenshotInterval;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(15, 39);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 26);
-            this.label5.TabIndex = 33;
-            this.label5.Text = "Inverval (secs.)";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // chkScreenshot
-            // 
-            this.chkScreenshot.AutoSize = true;
-            this.chkScreenshot.Checked = global::WinMqtt.Properties.Settings.Default.WorkerScreenshotEnable;
-            this.chkScreenshot.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "ScreenshotEnable", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkScreenshot.Location = new System.Drawing.Point(18, 19);
-            this.chkScreenshot.Name = "chkScreenshot";
-            this.chkScreenshot.Size = new System.Drawing.Size(59, 17);
-            this.chkScreenshot.TabIndex = 0;
-            this.chkScreenshot.Text = "Enable";
-            this.chkScreenshot.UseVisualStyleBackColor = true;
+            this.btnWebcamTest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnWebcamTest.Location = new System.Drawing.Point(285, 3);
+            this.btnWebcamTest.Name = "btnWebcamTest";
+            this.btnWebcamTest.Size = new System.Drawing.Size(80, 24);
+            this.btnWebcamTest.TabIndex = 55;
+            this.btnWebcamTest.Text = "Test";
+            this.btnWebcamTest.UseVisualStyleBackColor = true;
+            this.btnWebcamTest.Click += new System.EventHandler(this.Button2_Click);
             // 
             // tabApplicaiton
             // 
@@ -1126,60 +1083,100 @@
             this.chkStartUp.UseVisualStyleBackColor = true;
             this.chkStartUp.CheckedChanged += new System.EventHandler(this.ChkStartUp_CheckedChanged);
             // 
-            // label22
+            // label5
             // 
-            this.label22.AutoSize = true;
-            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label22.Location = new System.Drawing.Point(3, 30);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(75, 29);
-            this.label22.TabIndex = 57;
-            this.label22.Text = "Save directory";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 163);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 20);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Power";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // tbWebcamSaveLocation
+            // label23
             // 
-            this.tbWebcamSaveLocation.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::WinMqtt.Properties.Settings.Default, "WorkerCameraSaveLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tbWebcamSaveLocation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbWebcamSaveLocation.Location = new System.Drawing.Point(84, 33);
-            this.tbWebcamSaveLocation.Name = "tbWebcamSaveLocation";
-            this.tbWebcamSaveLocation.Size = new System.Drawing.Size(195, 20);
-            this.tbWebcamSaveLocation.TabIndex = 58;
-            this.tbWebcamSaveLocation.Text = global::WinMqtt.Properties.Settings.Default.WorkerCameraSaveLocation;
+            this.label23.AutoSize = true;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Location = new System.Drawing.Point(251, 163);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(120, 20);
+            this.label23.TabIndex = 21;
+            this.label23.Text = "-- not available --";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnWebcamBrowseSaveDir
+            // cbWorkerPower
             // 
-            this.btnWebcamBrowseSaveDir.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnWebcamBrowseSaveDir.Location = new System.Drawing.Point(285, 33);
-            this.btnWebcamBrowseSaveDir.Name = "btnWebcamBrowseSaveDir";
-            this.btnWebcamBrowseSaveDir.Size = new System.Drawing.Size(80, 23);
-            this.btnWebcamBrowseSaveDir.TabIndex = 59;
-            this.btnWebcamBrowseSaveDir.Text = "Browse";
-            this.btnWebcamBrowseSaveDir.UseVisualStyleBackColor = true;
-            this.btnWebcamBrowseSaveDir.Click += new System.EventHandler(this.BtnWebcamBrowseSaveDir_Click);
+            this.cbWorkerPower.AutoSize = true;
+            this.cbWorkerPower.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbWorkerPower.Checked = global::WinMqtt.Properties.Settings.Default.WorkerPowerEnabled;
+            this.cbWorkerPower.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "WorkerPowerEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbWorkerPower.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbWorkerPower.Location = new System.Drawing.Point(127, 166);
+            this.cbWorkerPower.Name = "cbWorkerPower";
+            this.cbWorkerPower.Size = new System.Drawing.Size(118, 14);
+            this.cbWorkerPower.TabIndex = 22;
             // 
-            // tableLayoutPanel4
+            // gbPower
             // 
-            this.tableLayoutPanel4.AutoSize = true;
-            this.tableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel4.Controls.Add(this.label20, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label22, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.tbWebcamSaveLocation, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.btnWebcamBrowseSaveDir, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.cbbCameraDevice, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnWebcamTest, 2, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(368, 59);
-            this.tableLayoutPanel4.TabIndex = 60;
+            this.gbPower.AutoSize = true;
+            this.gbPower.Controls.Add(this.chkSuspend);
+            this.gbPower.Controls.Add(this.chkHibernate);
+            this.gbPower.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbPower.Location = new System.Drawing.Point(0, 0);
+            this.gbPower.Name = "gbPower";
+            this.gbPower.Size = new System.Drawing.Size(374, 55);
+            this.gbPower.TabIndex = 57;
+            this.gbPower.TabStop = false;
+            this.gbPower.Text = "Power";
+            // 
+            // chkSuspend
+            // 
+            this.chkSuspend.AutoSize = true;
+            this.chkSuspend.Checked = global::WinMqtt.Properties.Settings.Default.CmdSuspendEnabled;
+            this.chkSuspend.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdSuspendEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkSuspend.Location = new System.Drawing.Point(8, 19);
+            this.chkSuspend.Name = "chkSuspend";
+            this.chkSuspend.Size = new System.Drawing.Size(68, 17);
+            this.chkSuspend.TabIndex = 17;
+            this.chkSuspend.Text = "Suspend";
+            this.chkSuspend.UseVisualStyleBackColor = true;
+            // 
+            // chkHibernate
+            // 
+            this.chkHibernate.AutoSize = true;
+            this.chkHibernate.Checked = global::WinMqtt.Properties.Settings.Default.CmdHibernateEnabled;
+            this.chkHibernate.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdHibernateEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkHibernate.Location = new System.Drawing.Point(82, 19);
+            this.chkHibernate.Name = "chkHibernate";
+            this.chkHibernate.Size = new System.Drawing.Size(72, 17);
+            this.chkHibernate.TabIndex = 18;
+            this.chkHibernate.Text = "Hibernate";
+            this.chkHibernate.UseVisualStyleBackColor = true;
+            // 
+            // ChkComputerUsed
+            // 
+            this.ChkComputerUsed.AutoSize = true;
+            this.ChkComputerUsed.Checked = global::WinMqtt.Properties.Settings.Default.SensorIsComputerUsedEnabled;
+            this.ChkComputerUsed.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "SensorIsComputerUsedEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ChkComputerUsed.Location = new System.Drawing.Point(8, 95);
+            this.ChkComputerUsed.Name = "ChkComputerUsed";
+            this.ChkComputerUsed.Size = new System.Drawing.Size(107, 17);
+            this.ChkComputerUsed.TabIndex = 35;
+            this.ChkComputerUsed.Text = "Is computer used";
+            this.ChkComputerUsed.UseVisualStyleBackColor = true;
+            // 
+            // ChkBatterySensor
+            // 
+            this.ChkBatterySensor.AutoSize = true;
+            this.ChkBatterySensor.Checked = global::WinMqtt.Properties.Settings.Default.SensorBatteryEnabled;
+            this.ChkBatterySensor.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "SensorBatteryEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ChkBatterySensor.Location = new System.Drawing.Point(8, 72);
+            this.ChkBatterySensor.Name = "ChkBatterySensor";
+            this.ChkBatterySensor.Size = new System.Drawing.Size(59, 17);
+            this.ChkBatterySensor.TabIndex = 34;
+            this.ChkBatterySensor.Text = "Battery";
+            this.ChkBatterySensor.UseVisualStyleBackColor = true;
             // 
             // OptionsForm
             // 
@@ -1213,26 +1210,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerDisksInterval)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerCameraInterval)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerScreenshotInterval)).EndInit();
-            this.tabSensors.ResumeLayout(false);
-            this.tabSensors.PerformLayout();
+            this.tabWorkerTweaks.ResumeLayout(false);
+            this.tabWorkerTweaks.PerformLayout();
             this.tabPresets.ResumeLayout(false);
             this.tabPresets.PerformLayout();
             this.tabSound.ResumeLayout(false);
             this.tabSound.PerformLayout();
-            this.boxAudioOutput.ResumeLayout(false);
             this.boxTTS.ResumeLayout(false);
             this.boxTTS.PerformLayout();
+            this.boxAudioOutput.ResumeLayout(false);
             this.tabVideo.ResumeLayout(false);
             this.tabVideo.PerformLayout();
             this.boxWebcam.ResumeLayout(false);
             this.boxWebcam.PerformLayout();
-            this.boxScreenshot.ResumeLayout(false);
-            this.boxScreenshot.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nScreenshotInterval)).EndInit();
-            this.tabApplicaiton.ResumeLayout(false);
-            this.tabApplicaiton.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tabApplicaiton.ResumeLayout(false);
+            this.tabApplicaiton.PerformLayout();
+            this.gbPower.ResumeLayout(false);
+            this.gbPower.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1251,19 +1247,14 @@
         private System.Windows.Forms.TextBox tbMqttPassword;
         private System.Windows.Forms.TextBox tbMqttUsername;
         private System.Windows.Forms.TextBox tbMqttServer;
-        private System.Windows.Forms.TabPage tabSensors;
-        private System.Windows.Forms.CheckBox ChkComputerUsed;
-        private System.Windows.Forms.CheckBox ChkBatterySensor;
+        private System.Windows.Forms.TabPage tabWorkerTweaks;
         private System.Windows.Forms.TabPage tabPresets;
         private System.Windows.Forms.CheckBox ChkProcesses;
         private System.Windows.Forms.CheckBox ChkMonitor;
         private System.Windows.Forms.CheckBox chktoast;
         private System.Windows.Forms.CheckBox chkReboot;
-        private System.Windows.Forms.CheckBox chkHibernate;
         private System.Windows.Forms.CheckBox chkShutdown;
-        private System.Windows.Forms.CheckBox chkSuspend;
         private System.Windows.Forms.TabPage tabVideo;
-        private System.Windows.Forms.CheckBox chkScreenshot;
         private System.Windows.Forms.TabPage tabSound;
         private System.Windows.Forms.Button btnTTSTest;
         private System.Windows.Forms.Label label11;
@@ -1275,7 +1266,6 @@
         private System.Windows.Forms.Button btnWebcamTest;
         private System.Windows.Forms.CheckBox cbTTSEnabled;
         private System.Windows.Forms.GroupBox boxWebcam;
-        private System.Windows.Forms.GroupBox boxScreenshot;
         private System.Windows.Forms.GroupBox boxMqttClient;
         private System.Windows.Forms.GroupBox boxTTS;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -1286,8 +1276,6 @@
         private System.Windows.Forms.CheckBox cbDiscoveryEnabled;
         private System.Windows.Forms.NumericUpDown nMqttPort;
         private System.Windows.Forms.NumericUpDown nMqttTimerInterval;
-        private System.Windows.Forms.NumericUpDown nScreenshotInterval;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabWorkers;
@@ -1320,5 +1308,13 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button btnWebcamBrowseSaveDir;
+        private System.Windows.Forms.CheckBox cbWorkerPower;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox gbPower;
+        private System.Windows.Forms.CheckBox chkSuspend;
+        private System.Windows.Forms.CheckBox chkHibernate;
+        private System.Windows.Forms.CheckBox ChkComputerUsed;
+        private System.Windows.Forms.CheckBox ChkBatterySensor;
     }
 }

@@ -5,6 +5,7 @@ using WinMqtt.Workers;
 using Newtonsoft.Json;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
+using System.Threading.Tasks;
 
 namespace WinMqtt.Mqtt
 {
@@ -12,6 +13,7 @@ namespace WinMqtt.Mqtt
     {
         private static MqttClient _client = null;
         public static bool IsConnected => _client == null ? false : _client.IsConnected;
+        private static bool _isConnecting = false;
 
         private static Dictionary<string, BaseWorker> _workers = new Dictionary<string, BaseWorker>();
         public static Dictionary<string, BaseWorker> Workers
@@ -33,6 +35,12 @@ namespace WinMqtt.Mqtt
 
         public static bool Connect()
         {
+            if (IsConnected)
+                return true;
+
+            if (_isConnecting)
+                return false;
+
             var hostname = Utils.Settings.MqttServer;
             var port = Convert.ToInt32(Utils.Settings.MqttPort);
             var username = Utils.Settings.MqttUsername;
@@ -41,22 +49,36 @@ namespace WinMqtt.Mqtt
             if (hostname + "" == "" || port <= 0)
                 return false;
 
-            if (IsConnected)
-                return true;
+            var task = Task.Run(() =>
+            {
+                _isConnecting = true;
+                _client = new MqttClient(hostname, port, false, null, null, MqttSslProtocols.None, null);
+                _client.Connect(Guid.NewGuid().ToString(), username, password);
+            });
 
-            _client = new MqttClient(hostname, port, false, null, null, MqttSslProtocols.None, null);
-            _client.Connect(Guid.NewGuid().ToString(), username, password);
+            var taskWait = task.Wait(TimeSpan.FromSeconds(10));
+            _isConnecting = false;
+
+            if (!taskWait)
+                return false;
 
             if (!IsConnected)
                 return false;
 
             _client.MqttMsgPublishReceived += OnMqttMsgReceived;
             _client.MqttMsgSubscribed += OnMqttSubscribed;
+            _client.MqttMsgUnsubscribed += OnMqttUnsubscribed;
             _client.ConnectionClosed += ClientMqttConnectionClosed;
 
             _client.Subscribe(new[] { $"{CommandPrefix}/#" }, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
 
-            return _client.IsConnected;
+            return IsConnected;
+        }
+
+        private static void OnMqttUnsubscribed(object sender, MqttMsgUnsubscribedEventArgs e)
+        {
+            Disconnect();
+            Connect();
         }
 
         private static void OnMqttMsgReceived(object sender, MqttMsgPublishEventArgs e)
@@ -92,6 +114,8 @@ namespace WinMqtt.Mqtt
         private static void ClientMqttConnectionClosed(object sender, EventArgs e)
         {
             _client.MqttMsgPublishReceived -= OnMqttMsgReceived;
+            _client.MqttMsgSubscribed -= OnMqttSubscribed;
+            _client.MqttMsgUnsubscribed -= OnMqttUnsubscribed;
             _client.ConnectionClosed -= ClientMqttConnectionClosed;
 
             Log.Add("Mqtt connection closed");
@@ -99,7 +123,9 @@ namespace WinMqtt.Mqtt
 
         public static void Publish(MqttMessage message)
         {
-            if (!_client.IsConnected)
+            Connect();
+
+            if (!IsConnected)
             {
                 Log.Add($"Failed to publish: '{message.Topic}' - not connected to the server.");
                 return;
@@ -125,7 +151,7 @@ namespace WinMqtt.Mqtt
 
         public static void Disconnect()
         {
-            if (_client == null || !IsConnected)
+            if (_client == null)
                 return;
 
             foreach (var kvp in Workers)
@@ -135,6 +161,7 @@ namespace WinMqtt.Mqtt
             }
 
             _client.Disconnect();
+            _client = null;
         }
     }
 }
