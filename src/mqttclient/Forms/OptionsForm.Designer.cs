@@ -54,6 +54,9 @@
             this.tbMqttPassword = new System.Windows.Forms.TextBox();
             this.tabWorkers = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.cbWorkerPower = new System.Windows.Forms.CheckBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cbWorkerMediaPlayer = new System.Windows.Forms.CheckBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -76,12 +79,9 @@
             this.label21 = new System.Windows.Forms.Label();
             this.cbWorkerScreenshot = new System.Windows.Forms.CheckBox();
             this.tabWorkerTweaks = new System.Windows.Forms.TabPage();
-            this.tabPresets = new System.Windows.Forms.TabPage();
-            this.ChkProcesses = new System.Windows.Forms.CheckBox();
-            this.ChkMonitor = new System.Windows.Forms.CheckBox();
-            this.chktoast = new System.Windows.Forms.CheckBox();
-            this.chkShutdown = new System.Windows.Forms.CheckBox();
-            this.chkReboot = new System.Windows.Forms.CheckBox();
+            this.gbPower = new System.Windows.Forms.GroupBox();
+            this.cbPowerSuspend = new System.Windows.Forms.CheckBox();
+            this.cbPowerHibernate = new System.Windows.Forms.CheckBox();
             this.tabSound = new System.Windows.Forms.TabPage();
             this.boxTTS = new System.Windows.Forms.GroupBox();
             this.cbTTSEnabled = new System.Windows.Forms.CheckBox();
@@ -102,14 +102,14 @@
             this.tabApplicaiton = new System.Windows.Forms.TabPage();
             this.chkMinimizeToTray = new System.Windows.Forms.CheckBox();
             this.chkStartUp = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.cbWorkerPower = new System.Windows.Forms.CheckBox();
-            this.gbPower = new System.Windows.Forms.GroupBox();
-            this.chkSuspend = new System.Windows.Forms.CheckBox();
-            this.chkHibernate = new System.Windows.Forms.CheckBox();
+            this.tabPresets = new System.Windows.Forms.TabPage();
             this.ChkComputerUsed = new System.Windows.Forms.CheckBox();
             this.ChkBatterySensor = new System.Windows.Forms.CheckBox();
+            this.ChkProcesses = new System.Windows.Forms.CheckBox();
+            this.chktoast = new System.Windows.Forms.CheckBox();
+            this.chkShutdown = new System.Windows.Forms.CheckBox();
+            this.chkReboot = new System.Windows.Forms.CheckBox();
+            this.cbPowerMonitor = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabConnection.SuspendLayout();
             this.boxHomeAssistantDiscovery.SuspendLayout();
@@ -126,7 +126,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerCameraInterval)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerScreenshotInterval)).BeginInit();
             this.tabWorkerTweaks.SuspendLayout();
-            this.tabPresets.SuspendLayout();
+            this.gbPower.SuspendLayout();
             this.tabSound.SuspendLayout();
             this.boxTTS.SuspendLayout();
             this.boxAudioOutput.SuspendLayout();
@@ -134,7 +134,7 @@
             this.boxWebcam.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabApplicaiton.SuspendLayout();
-            this.gbPower.SuspendLayout();
+            this.tabPresets.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -498,6 +498,40 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(374, 335);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
+            // cbWorkerPower
+            // 
+            this.cbWorkerPower.AutoSize = true;
+            this.cbWorkerPower.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbWorkerPower.Checked = global::WinMqtt.Properties.Settings.Default.WorkerPowerEnabled;
+            this.cbWorkerPower.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "WorkerPowerEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbWorkerPower.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbWorkerPower.Location = new System.Drawing.Point(127, 166);
+            this.cbWorkerPower.Name = "cbWorkerPower";
+            this.cbWorkerPower.Size = new System.Drawing.Size(118, 14);
+            this.cbWorkerPower.TabIndex = 22;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Location = new System.Drawing.Point(251, 163);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(120, 20);
+            this.label23.TabIndex = 21;
+            this.label23.Text = "-- not available --";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 163);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(118, 20);
+            this.label5.TabIndex = 20;
+            this.label5.Text = "Power";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // cbWorkerMediaPlayer
             // 
             this.cbWorkerMediaPlayer.AutoSize = true;
@@ -770,81 +804,43 @@
             this.tabWorkerTweaks.Text = "Worker tweaks";
             this.tabWorkerTweaks.UseVisualStyleBackColor = true;
             // 
-            // tabPresets
+            // gbPower
             // 
-            this.tabPresets.Controls.Add(this.ChkComputerUsed);
-            this.tabPresets.Controls.Add(this.ChkBatterySensor);
-            this.tabPresets.Controls.Add(this.ChkProcesses);
-            this.tabPresets.Controls.Add(this.ChkMonitor);
-            this.tabPresets.Controls.Add(this.chktoast);
-            this.tabPresets.Controls.Add(this.chkShutdown);
-            this.tabPresets.Controls.Add(this.chkReboot);
-            this.tabPresets.Location = new System.Drawing.Point(4, 22);
-            this.tabPresets.Name = "tabPresets";
-            this.tabPresets.Size = new System.Drawing.Size(374, 335);
-            this.tabPresets.TabIndex = 2;
-            this.tabPresets.Text = "NYI";
-            this.tabPresets.UseVisualStyleBackColor = true;
+            this.gbPower.AutoSize = true;
+            this.gbPower.Controls.Add(this.cbPowerMonitor);
+            this.gbPower.Controls.Add(this.cbPowerSuspend);
+            this.gbPower.Controls.Add(this.cbPowerHibernate);
+            this.gbPower.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbPower.Location = new System.Drawing.Point(0, 0);
+            this.gbPower.Name = "gbPower";
+            this.gbPower.Size = new System.Drawing.Size(374, 55);
+            this.gbPower.TabIndex = 57;
+            this.gbPower.TabStop = false;
+            this.gbPower.Text = "Power";
             // 
-            // ChkProcesses
+            // cbPowerSuspend
             // 
-            this.ChkProcesses.AutoSize = true;
-            this.ChkProcesses.Checked = global::WinMqtt.Properties.Settings.Default.CmdProcessEnabled;
-            this.ChkProcesses.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdProcessEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkProcesses.Location = new System.Drawing.Point(8, 141);
-            this.ChkProcesses.Name = "ChkProcesses";
-            this.ChkProcesses.Size = new System.Drawing.Size(75, 17);
-            this.ChkProcesses.TabIndex = 33;
-            this.ChkProcesses.Text = "Processes";
-            this.ChkProcesses.UseVisualStyleBackColor = true;
+            this.cbPowerSuspend.AutoSize = true;
+            this.cbPowerSuspend.Checked = global::WinMqtt.Properties.Settings.Default.CmdSuspendEnabled;
+            this.cbPowerSuspend.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdSuspendEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbPowerSuspend.Location = new System.Drawing.Point(8, 19);
+            this.cbPowerSuspend.Name = "cbPowerSuspend";
+            this.cbPowerSuspend.Size = new System.Drawing.Size(68, 17);
+            this.cbPowerSuspend.TabIndex = 17;
+            this.cbPowerSuspend.Text = "Suspend";
+            this.cbPowerSuspend.UseVisualStyleBackColor = true;
             // 
-            // ChkMonitor
+            // cbPowerHibernate
             // 
-            this.ChkMonitor.AutoSize = true;
-            this.ChkMonitor.Checked = global::WinMqtt.Properties.Settings.Default.CmdMonitorEnabled;
-            this.ChkMonitor.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdMonitorEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkMonitor.Location = new System.Drawing.Point(8, 49);
-            this.ChkMonitor.Name = "ChkMonitor";
-            this.ChkMonitor.Size = new System.Drawing.Size(61, 17);
-            this.ChkMonitor.TabIndex = 32;
-            this.ChkMonitor.Text = "Monitor";
-            this.ChkMonitor.UseVisualStyleBackColor = true;
-            // 
-            // chktoast
-            // 
-            this.chktoast.AutoSize = true;
-            this.chktoast.Checked = global::WinMqtt.Properties.Settings.Default.CmdToastEnabled;
-            this.chktoast.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdToastEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chktoast.Location = new System.Drawing.Point(8, 118);
-            this.chktoast.Name = "chktoast";
-            this.chktoast.Size = new System.Drawing.Size(53, 17);
-            this.chktoast.TabIndex = 31;
-            this.chktoast.Text = "Toast";
-            this.chktoast.UseVisualStyleBackColor = true;
-            // 
-            // chkShutdown
-            // 
-            this.chkShutdown.AutoSize = true;
-            this.chkShutdown.Checked = global::WinMqtt.Properties.Settings.Default.CmdShutdownEnabled;
-            this.chkShutdown.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdShutdownEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkShutdown.Location = new System.Drawing.Point(8, 3);
-            this.chkShutdown.Name = "chkShutdown";
-            this.chkShutdown.Size = new System.Drawing.Size(74, 17);
-            this.chkShutdown.TabIndex = 15;
-            this.chkShutdown.Text = "Shutdown";
-            this.chkShutdown.UseVisualStyleBackColor = true;
-            // 
-            // chkReboot
-            // 
-            this.chkReboot.AutoSize = true;
-            this.chkReboot.Checked = global::WinMqtt.Properties.Settings.Default.CmdRebootEnabled;
-            this.chkReboot.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdRebootEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkReboot.Location = new System.Drawing.Point(8, 26);
-            this.chkReboot.Name = "chkReboot";
-            this.chkReboot.Size = new System.Drawing.Size(61, 17);
-            this.chkReboot.TabIndex = 18;
-            this.chkReboot.Text = "Reboot";
-            this.chkReboot.UseVisualStyleBackColor = true;
+            this.cbPowerHibernate.AutoSize = true;
+            this.cbPowerHibernate.Checked = global::WinMqtt.Properties.Settings.Default.CmdHibernateEnabled;
+            this.cbPowerHibernate.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdHibernateEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbPowerHibernate.Location = new System.Drawing.Point(82, 19);
+            this.cbPowerHibernate.Name = "cbPowerHibernate";
+            this.cbPowerHibernate.Size = new System.Drawing.Size(72, 17);
+            this.cbPowerHibernate.TabIndex = 18;
+            this.cbPowerHibernate.Text = "Hibernate";
+            this.cbPowerHibernate.UseVisualStyleBackColor = true;
             // 
             // tabSound
             // 
@@ -1083,83 +1079,27 @@
             this.chkStartUp.UseVisualStyleBackColor = true;
             this.chkStartUp.CheckedChanged += new System.EventHandler(this.ChkStartUp_CheckedChanged);
             // 
-            // label5
+            // tabPresets
             // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 163);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(118, 20);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Power";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label23.Location = new System.Drawing.Point(251, 163);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(120, 20);
-            this.label23.TabIndex = 21;
-            this.label23.Text = "-- not available --";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbWorkerPower
-            // 
-            this.cbWorkerPower.AutoSize = true;
-            this.cbWorkerPower.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbWorkerPower.Checked = global::WinMqtt.Properties.Settings.Default.WorkerPowerEnabled;
-            this.cbWorkerPower.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "WorkerPowerEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.cbWorkerPower.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbWorkerPower.Location = new System.Drawing.Point(127, 166);
-            this.cbWorkerPower.Name = "cbWorkerPower";
-            this.cbWorkerPower.Size = new System.Drawing.Size(118, 14);
-            this.cbWorkerPower.TabIndex = 22;
-            // 
-            // gbPower
-            // 
-            this.gbPower.AutoSize = true;
-            this.gbPower.Controls.Add(this.chkSuspend);
-            this.gbPower.Controls.Add(this.chkHibernate);
-            this.gbPower.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbPower.Location = new System.Drawing.Point(0, 0);
-            this.gbPower.Name = "gbPower";
-            this.gbPower.Size = new System.Drawing.Size(374, 55);
-            this.gbPower.TabIndex = 57;
-            this.gbPower.TabStop = false;
-            this.gbPower.Text = "Power";
-            // 
-            // chkSuspend
-            // 
-            this.chkSuspend.AutoSize = true;
-            this.chkSuspend.Checked = global::WinMqtt.Properties.Settings.Default.CmdSuspendEnabled;
-            this.chkSuspend.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdSuspendEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkSuspend.Location = new System.Drawing.Point(8, 19);
-            this.chkSuspend.Name = "chkSuspend";
-            this.chkSuspend.Size = new System.Drawing.Size(68, 17);
-            this.chkSuspend.TabIndex = 17;
-            this.chkSuspend.Text = "Suspend";
-            this.chkSuspend.UseVisualStyleBackColor = true;
-            // 
-            // chkHibernate
-            // 
-            this.chkHibernate.AutoSize = true;
-            this.chkHibernate.Checked = global::WinMqtt.Properties.Settings.Default.CmdHibernateEnabled;
-            this.chkHibernate.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdHibernateEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.chkHibernate.Location = new System.Drawing.Point(82, 19);
-            this.chkHibernate.Name = "chkHibernate";
-            this.chkHibernate.Size = new System.Drawing.Size(72, 17);
-            this.chkHibernate.TabIndex = 18;
-            this.chkHibernate.Text = "Hibernate";
-            this.chkHibernate.UseVisualStyleBackColor = true;
+            this.tabPresets.Controls.Add(this.ChkComputerUsed);
+            this.tabPresets.Controls.Add(this.ChkBatterySensor);
+            this.tabPresets.Controls.Add(this.ChkProcesses);
+            this.tabPresets.Controls.Add(this.chktoast);
+            this.tabPresets.Controls.Add(this.chkShutdown);
+            this.tabPresets.Controls.Add(this.chkReboot);
+            this.tabPresets.Location = new System.Drawing.Point(4, 22);
+            this.tabPresets.Name = "tabPresets";
+            this.tabPresets.Size = new System.Drawing.Size(374, 335);
+            this.tabPresets.TabIndex = 2;
+            this.tabPresets.Text = "NYI";
+            this.tabPresets.UseVisualStyleBackColor = true;
             // 
             // ChkComputerUsed
             // 
             this.ChkComputerUsed.AutoSize = true;
             this.ChkComputerUsed.Checked = global::WinMqtt.Properties.Settings.Default.SensorIsComputerUsedEnabled;
             this.ChkComputerUsed.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "SensorIsComputerUsedEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkComputerUsed.Location = new System.Drawing.Point(8, 95);
+            this.ChkComputerUsed.Location = new System.Drawing.Point(8, 72);
             this.ChkComputerUsed.Name = "ChkComputerUsed";
             this.ChkComputerUsed.Size = new System.Drawing.Size(107, 17);
             this.ChkComputerUsed.TabIndex = 35;
@@ -1171,12 +1111,72 @@
             this.ChkBatterySensor.AutoSize = true;
             this.ChkBatterySensor.Checked = global::WinMqtt.Properties.Settings.Default.SensorBatteryEnabled;
             this.ChkBatterySensor.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "SensorBatteryEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ChkBatterySensor.Location = new System.Drawing.Point(8, 72);
+            this.ChkBatterySensor.Location = new System.Drawing.Point(8, 49);
             this.ChkBatterySensor.Name = "ChkBatterySensor";
             this.ChkBatterySensor.Size = new System.Drawing.Size(59, 17);
             this.ChkBatterySensor.TabIndex = 34;
             this.ChkBatterySensor.Text = "Battery";
             this.ChkBatterySensor.UseVisualStyleBackColor = true;
+            // 
+            // ChkProcesses
+            // 
+            this.ChkProcesses.AutoSize = true;
+            this.ChkProcesses.Checked = global::WinMqtt.Properties.Settings.Default.CmdProcessEnabled;
+            this.ChkProcesses.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdProcessEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.ChkProcesses.Location = new System.Drawing.Point(8, 118);
+            this.ChkProcesses.Name = "ChkProcesses";
+            this.ChkProcesses.Size = new System.Drawing.Size(75, 17);
+            this.ChkProcesses.TabIndex = 33;
+            this.ChkProcesses.Text = "Processes";
+            this.ChkProcesses.UseVisualStyleBackColor = true;
+            // 
+            // chktoast
+            // 
+            this.chktoast.AutoSize = true;
+            this.chktoast.Checked = global::WinMqtt.Properties.Settings.Default.CmdToastEnabled;
+            this.chktoast.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdToastEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chktoast.Location = new System.Drawing.Point(8, 95);
+            this.chktoast.Name = "chktoast";
+            this.chktoast.Size = new System.Drawing.Size(53, 17);
+            this.chktoast.TabIndex = 31;
+            this.chktoast.Text = "Toast";
+            this.chktoast.UseVisualStyleBackColor = true;
+            // 
+            // chkShutdown
+            // 
+            this.chkShutdown.AutoSize = true;
+            this.chkShutdown.Checked = global::WinMqtt.Properties.Settings.Default.CmdShutdownEnabled;
+            this.chkShutdown.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdShutdownEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkShutdown.Location = new System.Drawing.Point(8, 3);
+            this.chkShutdown.Name = "chkShutdown";
+            this.chkShutdown.Size = new System.Drawing.Size(74, 17);
+            this.chkShutdown.TabIndex = 15;
+            this.chkShutdown.Text = "Shutdown";
+            this.chkShutdown.UseVisualStyleBackColor = true;
+            // 
+            // chkReboot
+            // 
+            this.chkReboot.AutoSize = true;
+            this.chkReboot.Checked = global::WinMqtt.Properties.Settings.Default.CmdRebootEnabled;
+            this.chkReboot.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdRebootEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.chkReboot.Location = new System.Drawing.Point(8, 26);
+            this.chkReboot.Name = "chkReboot";
+            this.chkReboot.Size = new System.Drawing.Size(61, 17);
+            this.chkReboot.TabIndex = 18;
+            this.chkReboot.Text = "Reboot";
+            this.chkReboot.UseVisualStyleBackColor = true;
+            // 
+            // cbPowerMonitor
+            // 
+            this.cbPowerMonitor.AutoSize = true;
+            this.cbPowerMonitor.Checked = global::WinMqtt.Properties.Settings.Default.CmdMonitorEnabled;
+            this.cbPowerMonitor.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::WinMqtt.Properties.Settings.Default, "CmdMonitorEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.cbPowerMonitor.Location = new System.Drawing.Point(160, 19);
+            this.cbPowerMonitor.Name = "cbPowerMonitor";
+            this.cbPowerMonitor.Size = new System.Drawing.Size(61, 17);
+            this.cbPowerMonitor.TabIndex = 33;
+            this.cbPowerMonitor.Text = "Monitor";
+            this.cbPowerMonitor.UseVisualStyleBackColor = true;
             // 
             // OptionsForm
             // 
@@ -1212,8 +1212,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nWorkerScreenshotInterval)).EndInit();
             this.tabWorkerTweaks.ResumeLayout(false);
             this.tabWorkerTweaks.PerformLayout();
-            this.tabPresets.ResumeLayout(false);
-            this.tabPresets.PerformLayout();
+            this.gbPower.ResumeLayout(false);
+            this.gbPower.PerformLayout();
             this.tabSound.ResumeLayout(false);
             this.tabSound.PerformLayout();
             this.boxTTS.ResumeLayout(false);
@@ -1227,8 +1227,8 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tabApplicaiton.ResumeLayout(false);
             this.tabApplicaiton.PerformLayout();
-            this.gbPower.ResumeLayout(false);
-            this.gbPower.PerformLayout();
+            this.tabPresets.ResumeLayout(false);
+            this.tabPresets.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1250,7 +1250,6 @@
         private System.Windows.Forms.TabPage tabWorkerTweaks;
         private System.Windows.Forms.TabPage tabPresets;
         private System.Windows.Forms.CheckBox ChkProcesses;
-        private System.Windows.Forms.CheckBox ChkMonitor;
         private System.Windows.Forms.CheckBox chktoast;
         private System.Windows.Forms.CheckBox chkReboot;
         private System.Windows.Forms.CheckBox chkShutdown;
@@ -1312,9 +1311,10 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox gbPower;
-        private System.Windows.Forms.CheckBox chkSuspend;
-        private System.Windows.Forms.CheckBox chkHibernate;
+        private System.Windows.Forms.CheckBox cbPowerSuspend;
+        private System.Windows.Forms.CheckBox cbPowerHibernate;
         private System.Windows.Forms.CheckBox ChkComputerUsed;
         private System.Windows.Forms.CheckBox ChkBatterySensor;
+        private System.Windows.Forms.CheckBox cbPowerMonitor;
     }
 }

@@ -44,7 +44,8 @@ namespace WinMqtt.Workers
         public string WorkerType => WorkerFriendlyType.ToLower();
         #endregion
 
-        #region MQTT messages
+        #region MQTT messages & setup
+        //protected abstract void Setup();
         protected abstract List<MqttMessage> PrepareDiscoveryMessages();
         public void SendDiscoveryMessages()
         {

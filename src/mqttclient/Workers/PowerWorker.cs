@@ -24,18 +24,26 @@ namespace WinMqtt.Workers
             switch (attribute)
             {
                 case "suspend":
+                    if (!Utils.Settings.CmdSuspendEnabled)
+                        break;
                     SetSuspendState(false, true, true);
                     //MqttConnection.Publish(PowerMqttMessage(false));
                     break;
                 case "hibernate":
+                    if (!Utils.Settings.CmdHibernateEnabled)
+                        break;
                     SetSuspendState(true, true, true);
                     //MqttConnection.Publish(PowerMqttMessage(false));
                     break;
                 case "monitor_off":
+                    if (!Utils.Settings.CmdMonitorEnabled)
+                        break;
                     Monitor.TurnOff();
                     //MqttConnection.Publish(MonitorMqttMessage(false));
                     break;
                 case "monitor_on":
+                    if (!Utils.Settings.CmdMonitorEnabled)
+                        break;
                     Monitor.TurnOn();
                     //MqttConnection.Publish(MonitorMqttMessage(true));
                     break;
