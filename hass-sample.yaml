@@ -62,3 +62,83 @@ script:
     - service: mqtt.publish
       data:
         topic: "maczugapc/cmd/mediaplayer/stop"
+
+# Code below is a sample control card for your device (mostly media playing), requires some custom cards/buttons tho.
+cards:
+  - entities:
+      - entity: switch.maczugapc
+    show_header_toggle: false
+    type: entities
+  - cards:
+      - action: service
+        icon: 'mdi:skip-backward'
+        tap_action:
+          action: call-service
+          service: script.maczugapc_track_prev
+        type: 'custom:button-card'
+      - action: service
+        icon: 'mdi:stop'
+        tap_action:
+          action: call-service
+          service: script.maczugapc_media_stop
+        type: 'custom:button-card'
+      - action: service
+        icon: 'mdi:play-pause'
+        tap_action:
+          action: call-service
+          service: script.maczugapc_pause_play
+        type: 'custom:button-card'
+      - action: service
+        icon: 'mdi:skip-next'
+        tap_action:
+          action: call-service
+          service: script.maczugapc_track_next
+        type: 'custom:button-card'
+    type: horizontal-stack
+  - color_type: label-card
+    entity: sensor.maczugapc_volume_level
+    name: Volume
+    show_icon: false
+    show_state: true
+    type: 'custom:button-card'
+  - cards:
+      - action: service
+        hold_action:
+          action: call-service
+          repeat: 200
+          service: media_player.volume_down
+          service_data:
+            entity_id: media_player.maczugapc
+        icon: 'mdi:volume-minus'
+        name: Ciszej
+        tap_action:
+          action: call-service
+          service: media_player.volume_down
+          service_data:
+            entity_id: media_player.maczugapc
+        type: 'custom:button-card'
+      - action: service
+        entity: switch.maczugapc_volume_mute
+        icon: 'mdi:volume-mute'
+        name: Wycisz
+        tap_action:
+          action: toggle
+          entity: switch.maczugapc_volume_mute
+        type: 'custom:button-card'
+      - action: service
+        hold_action:
+          action: call-service
+          repeat: 200
+          service: media_player.volume_up
+          service_data:
+            entity_id: media_player.maczugapc
+        icon: 'mdi:volume-plus'
+        name: Głośniej
+        tap_action:
+          action: call-service
+          service: media_player.volume_up
+          service_data:
+            entity_id: media_player.maczugapc
+        type: 'custom:button-card'
+    type: horizontal-stack
+type: vertical-stack
