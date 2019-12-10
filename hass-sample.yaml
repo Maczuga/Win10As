@@ -64,6 +64,7 @@ script:
         topic: "maczugapc/cmd/mediaplayer/stop"
 
 # Code below is a sample control card for your device (mostly media playing), requires some custom cards/buttons tho.
+# Preview: https://i.imgur.com/KDsSmqS.png
 cards:
   - entities:
       - entity: switch.maczugapc
