@@ -1,116 +1,64 @@
-# replace the string kjetilsv with your topic defined in the mqtt client
-
-camera:
-  - platform: mqtt
-    topic: kjetilsv/mqttcamera
-    name: kjetilsv
+# Replace the 'maczugapc' string with your topic defined in the mqtt client
+# There is no need to device any sensor manually - it's all handled by MQTT auto-discovery.
 
 switch:
-#power options
-  - platform: mqtt
-    name: "Kjetilsvhibernate"
-    command_topic: "kjetilsv/hibernate"
-    payload_on: "1"
-    optimistic: false
-  - platform: mqtt
-    name: "Kjetilsvsuspend"
-    command_topic: "kjetilsv/suspend"
-    payload_on: "1"
-    optimistic: false
-  - platform: mqtt
-    name: "Kjetilsvreboot"
-    command_topic: "kjetilsv/reboot"
-    payload_on: "1"
-    optimistic: false
-  - platform: mqtt
-    name: "Kjetilsvshutdown"
-    command_topic: "kjetilsv/shutdown"
-    payload_on: "1"
-    optimistic: false
-#Lock computer
-#add custom command
-#topic: "lockcomputer"
-#cmdtxt: "rundll32.exe"
-#cmdparameters: "user32.dll, LockWorkStation"
-#thanks to https://github.com/FatBasta
-  - platform: mqtt
-    name: "Kjetilsvlockcomputer"
-    command_topic: "kjetilsv/lockcomputer"
-    payload_on: "1"
-
-#Instead of slider/input box i just made three presets low,normal og full(90%) 
-  - platform: mqtt
-    name: "KjetilsvVolume20"
-    state_topic: "kjetilsv/volume"
-    command_topic: "kjetilsv/volume/set"
-    payload_on: "20"
-  - platform: mqtt
-    name: "KjetilsvVolume20"
-    state_topic: "kjetilsv/volume"
-    command_topic: "kjetilsv/volume/set"
-    payload_on: "20"
-  - platform: mqtt
-    name: "KjetilsvVolume90"
-    state_topic: "kjetilsv/volume"
-    command_topic: "kjetilsv/volume/set"
-    payload_on: "90"
-#commandline scripts
-  - platform: command_line
-    switches:
-      dinner_time:
-        command_on: '/home/homeassistant/.homeassistant/scripts/dinner.sh'
-        #dinner.sh
-        #mosquitto_pub -t kjetilsv/toast -m "Home Assistant,Dinner time!,,c:\temp\dinner.jpg"
-        #mosquitto_pub -t kjetilsv/tts -m "dinner time,DINNER TIME, D I N N E R TIME"
-  - platform: command_line
-    switches:
-      come_down:
-        command_on: '/home/homeassistant/.homeassistant/scripts/comedown.sh'
-        #comedown.sh
-        #mosquitto_pub -t kjetilsv/toast -m "Home Assistant,kom ned!,,c:\temp\iselin.jpg"
-        #mosquitto_pub -t kjetilsv/tts -m "NAG NAG NAG"
-
-sensor:
-#hardware
-  - platform: mqtt
-    state_topic: "kjetilsv/freememory"
-    name: "Kjetilsv freememory" 
-  - platform: mqtt
-    state_topic: "kjetilsv/cpuprosessortime"
-    name: "Kjetilsv Cpu load" 
-#media
-  - platform: mqtt
-    state_topic: "kjetilsv/mute"
-    name: "Kjetilsv Volume muted" 
-  - platform: mqtt
-    state_topic: "kjetilsv/volume"
-    name: "Kjetilsv Volume" 
-#disk usage
-  - platform: mqtt
-    state_topic: "kjetilsv/drive/C/percentfree"
-    name: 'Kjetilsv C:\ precent free space'
-    unit_of_measurement: "%"
-  - platform: mqtt
-    state_topic: "kjetilsv/drive/D/percentfree"
-    name: 'Kjetilsv D:\ precent free space'
-    unit_of_measurement: "%"  
-  - platform: mqtt
-    state_topic: "kjetilsv/drive/E/percentfree"
-    name: 'Kjetilsv E:\ precent free space'
-    unit_of_measurement: "%"
-  - platform: mqtt
-    state_topic: "kjetilsv/drive/F/percentfree"
-    name: 'Kjetilsv F:\ precent free space'
-    unit_of_measurement: "%"
-#usage of the mqtt notification to tts
-automation:
-- alias: Muted
-  trigger:
-    platform: state
-    entity_id: switch.Kjetilsvmute
-    to: 'on'
-  action:
-    service: mqtt.publish
-    data_template:
-      payload: "your audio is muted, so you can hear this"
-      topic: "kjetilsv/tts"
+  - platform: wake_on_lan
+    mac_address: "12-34-45-56-67-78" # Replace with your device MAC
+    host: "192.168.1.2"
+    name: "MaczugaPC"
+    turn_off: 
+      service: script.maczugapc_suspend
+      
+script:
+  maczugapc_suspend:
+    alias: MaczugaPC - suspend
+    sequence:
+    - service: mqtt.publish
+      data:
+        topic: "maczugapc/cmd/power/suspend"
+        payload: "on"
+  maczugapc_vol_up:
+    alias: MaczugaPC - Vol Up
+    sequence:
+    - service: mqtt.publish
+      data:
+        topic: "maczugapc/cmd/volume/up"
+        payload: 2
+  maczugapc_vol_down:
+    alias: MaczugaPC - Vol Down
+    sequence:
+    - service: mqtt.publish
+      data:
+        topic: "maczugapc/cmd/volume/down"
+        payload: 2
+  # Mute can be done via switch - thus commented out.
+  # maczugapc_mute_toggle:
+    # alias: MaczugaPC - Mute
+    # sequence:
+    # - service: mqtt.publish
+      # data:
+        # topic: "maczugapc/cmd/volume/mute_toggle"
+  maczugapc_track_prev:
+    alias: MaczugaPC - Track Prev
+    sequence:
+    - service: mqtt.publish
+      data:
+        topic: "maczugapc/cmd/mediaplayer/prev_track"
+  maczugapc_track_next:
+    alias: MaczugaPC - Track Next
+    sequence:
+    - service: mqtt.publish
+      data:
+        topic: "maczugapc/cmd/mediaplayer/next_track"
+  maczugapc_pause_play:
+    alias: MaczugaPC - Pause/Play
+    sequence:
+    - service: mqtt.publish
+      data:
+        topic: "maczugapc/cmd/mediaplayer/play_pause"
+  maczugapc_media_stop:
+    alias: MaczugaPC - Media Stop
+    sequence:
+    - service: mqtt.publish
+      data:
+        topic: "maczugapc/cmd/mediaplayer/stop"
